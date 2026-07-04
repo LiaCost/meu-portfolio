@@ -26,19 +26,19 @@ export const projects = [
   { id:2, title:'Semear', type:'Full Stack', color:'blue', featured:true, realAcademic:true,
     description:'Marketplace de sementes nativas conectando pequenos produtores ao consumidor. Dual database: MySQL para transações, MongoDB para conteúdo educativo.',
     highlight:'Nasceu como protótipo de UX para a Embrapa e ganhou vida como sistema real.',
-    techs:['Node.js','Express','MySQL','MongoDB','JavaScript', 'SPA'], github:'#', deploy:null, image:'/semear.svg' },
+    techs:['Node.js','Express','MySQL','MongoDB','JavaScript', 'SPA'], github:'#', deploy:'#', image:'/semear.svg' },
 
   { id:3, title:'Elysium Beauty', type:'Full Stack', color:'purple', featured:true, realAcademic:true,
     description:'Plataforma de agendamentos para estética com painel administrativo, relatórios e gestão completa de clientes.',
     highlight:'Projeto final do curso técnico — sistema do zero ao deploy.',
     techs:['C#','ASP.NET MVC','Entity Framework','SQL Server'], github:'#', deploy:null, image:'/elysiumBeauty.svg' },
 
-  { id:4, title:'DITL — Ideia Space', type:'Projeto Real', color:'cyan', featured:true, realClient:true,
+  { id:4, title:'DITL — Ideia Space', type:'Full Stack', color:'cyan', featured:true, realClient:true,
     description:'Sistema de automação de operações de satélite com cronômetro, registro com foto e geração automática de relatórios. Entregue para a Ideia Space.',
     highlight:'De "não entendi nada" na primeira reunião à entrega completa. 🛰️',
-    techs:['HTML','CSS','JavaScript', 'MySQL'], github:null, deploy:null, image:'/ideiaSpace.svg' },
+    techs:['HTML','CSS','JavaScript', 'MySQL'], github:null, deploy:'#', image:'/ideiaSpace.svg' },
 
-  { id:5, title:'NowGo Social', type:'Projeto Real', color:'blue', featured:false, realClient:true,
+  { id:5, title:'NowGo Social', type:'Front-end', color:'blue', featured:false, realClient:true,
     description:'Plataforma de cursos online para populações vulneráveis, adaptada para a empresa NowSocial via Residência Porto Digital.',
     highlight:'Sistema de cursos online com gamificação, ranking e certificados digitais, entregue para a NowSocial.',
     techs:['Bootstrap','Animate.css','Swiper.js','jQuery'], github:null, deploy:null, image:'/nowgoSocial.svg' },
@@ -46,7 +46,7 @@ export const projects = [
   { id:6, title:'Confeitaria Ana Alves', type:'Frontend', color:'purple', featured:false, realAcademic:true,
     description:'Site com catálogo, galeria, sistema de encomendas via WhatsApp, área logada e timeline interativa.',
     highlight:'Website desenvolvido como projeto acadêmico para a Confeitaria Ana Alves, uma confeitaria artesanal.',
-    techs:['HTML','CSS','JavaScript'], github:'#', deploy:null, image:'/confeitariaAnaAlves.svg' },
+    techs:['HTML','CSS','JavaScript'], github:'#', deploy:'#', image:'/confeitariaAnaAlves.svg' },
     
   { id:7, title:'Technaveia', type:'Frontend', color:'purple', featured:true, realAcademic:true, 
     description:'Aplicativo mobile que conecta clientes a técnicos de serviços diversos (manutenção, TI, elétrica, etc.). ',

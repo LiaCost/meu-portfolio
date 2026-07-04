@@ -83,7 +83,7 @@ export default function Contato() {
         </div>
 
         <p className="text-center text-xs mt-16 font-body" style={{ color:'var(--text-dim)' }}>
-          © {new Date().getFullYear()} Lia Costa · Feito com React + Vite ✨
+          © {new Date().getFullYear()} Desenvolvido por Lia Costa · Todos os direitos reservados 
         </p>
       </div>
     </section>

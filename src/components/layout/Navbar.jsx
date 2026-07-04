@@ -27,7 +27,7 @@ export default function Navbar({ isDark, onToggleTheme }) {
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="font-display text-base font-bold text-glow tracking-tight">
-          LC<span style={{ color:'var(--accent1)' }}>.</span>
+          LIA COSTA<span style={{ color:'var(--accent1)' }}>.</span>
         </a>
 
         {/* Links desktop */}
@@ -48,7 +48,7 @@ export default function Navbar({ isDark, onToggleTheme }) {
         <div className="hidden md:flex items-center gap-4">
           <ThemeToggle isDark={isDark} onToggle={onToggleTheme} />
           <a href={personal.cv} className="btn-glass text-xs py-2 px-4 gap-1.5">
-            <Download size={12} /> CV
+            <Download size={18} /> CV
           </a>
         </div>
 
