@@ -44,7 +44,7 @@ export default function GalaxyBackground() {
   }, [])
 
   return (
-    <div ref={containerRef} className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+    <div ref={containerRef} className="fixed inset-0 pointer-events-none" style={{ zIndex: 0, overflow: 'hidden' }}>
       {/* Gradiente de fundo */}
       <div className="absolute inset-0" style={{
         background: 'radial-gradient(ellipse at 50% 0%, var(--glow) 0%, transparent 60%)'

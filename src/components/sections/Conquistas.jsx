@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Trophy, Lightbulb } from 'lucide-react'
 import { SectionWrapper, SectionHeader, BadgeNeon } from '../ui'
 import { competitions } from '../../data/portfolio'
 
 export default function Conquistas() {
   const [active, setActive] = useState(Math.floor(competitions.length / 2))
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
 
   return (
     <SectionWrapper id="conquistas">
@@ -12,15 +20,15 @@ export default function Conquistas() {
         subtitle="Mais de 5 pódios em competições regionais e nacionais, sempre com foco em impacto social." />
 
       {/* 3D Coverflow */}
-      <div style={{ perspective:'1200px', overflowX:'visible', paddingBlock:40 }}>
+      <div style={{ perspective:'1200px', overflowX:'hidden', paddingBlock:40 }}>
         <div className="flex items-center justify-center gap-4 relative" style={{ height:320 }}>
           {competitions.map((c, i) => {
             const offset = i - active
             const absOff = Math.abs(offset)
             const isActive = offset === 0
 
-            const rotateY  = offset * -35
-            const translateX = offset * 200
+            const rotateY  = isMobile ? 0 : offset * -35
+            const translateX = isMobile ? offset * 120 : offset * 200
             const translateZ = isActive ? 80 : -absOff * 60
             const scale    = isActive ? 1 : Math.max(0.68, 1 - absOff * 0.12)
             const opacity  = isActive ? 1 : Math.max(0.35, 1 - absOff * 0.28)
@@ -31,7 +39,7 @@ export default function Conquistas() {
                 onClick={() => setActive(i)}
                 style={{
                   position: 'absolute',
-                  width: isActive ? 400 : 300,
+                  width: isActive ? (isMobile ? 280 : 400) : (isMobile ? 200 : 300),
                   minHeight: isActive ? 280 : 220,
                   cursor: isActive ? 'default' : 'pointer',
                   transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,

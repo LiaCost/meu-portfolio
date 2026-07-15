@@ -67,7 +67,11 @@ export default function Navbar({ isDark, onToggleTheme }) {
             {links.map(l => (
               <li key={l.label}>
                 <a href={l.href} onClick={() => setOpen(false)}
-                  style={{ color:'var(--text-muted)' }} className="text-sm hover:text-white transition-colors">{l.label}</a>
+                  className="text-sm transition-colors duration-200 font-body tracking-wide"
+                  style={{ color:'var(--text-muted)' }}
+                  onMouseEnter={e => e.currentTarget.style.color='#fff'}
+                  onMouseLeave={e => e.currentTarget.style.color='var(--text-muted)'}
+                >{l.label}</a>
               </li>
             ))}
             <li><a href={personal.cv} className="btn-glass text-sm py-2 px-4 justify-center"><Download size={13} /> Baixar CV</a></li>
