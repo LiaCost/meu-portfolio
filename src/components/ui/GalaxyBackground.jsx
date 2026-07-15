@@ -1,18 +1,18 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useMemo } from 'react'
 
 export default function GalaxyBackground() {
   const containerRef = useRef(null)
 
-  const stars = Array.from({ length: 90 }, (_, i) => ({
+  const stars = useMemo(() => Array.from({ length: 150 }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
     y: Math.random() * 100,
     size: Math.random() * 2.2 + 0.4,
     delay: Math.random() * 8,
     dur: Math.random() * 4 + 4,
-    ox: Math.random() * 100, // original x para paralaxe
-    oy: Math.random() * 100,
-  }))
+    // depth único por estrela (0.2 a 3.0) — garante que todas se movam diferente
+    depth: Math.random() * 2.8 + 0.2,
+  })), [])
 
   const shooting = [
     { top: '12%', delay: '0s',   dur: '3s'   },
@@ -25,23 +25,104 @@ export default function GalaxyBackground() {
   useEffect(() => {
     const container = containerRef.current
     if (!container) return
-    const starEls = container.querySelectorAll('.star-el')
+    const starEls = Array.from(container.querySelectorAll('.star-el'))
 
-    const onMove = (e) => {
-      const mx = (e.clientX / window.innerWidth  - 0.5) * 2 // -1 a 1
-      const my = (e.clientY / window.innerHeight - 0.5) * 2
+    let rafId = null
+    // offsets individuais por estrela (paralaxe + explosão combinados)
+    const offsets = stars.map(() => ({ x: 0, y: 0, bx: 0, by: 0 }))
 
-      starEls.forEach((el, i) => {
-        const depth  = ((i % 5) + 1) * 0.6  // profundidade varia por estrela
-        const dx = mx * depth * 8
-        const dy = my * depth * 8
-        el.style.transform = `translate(${dx}px, ${dy}px)`
+    // --- Paralaxe (mouse/touch move) ---
+    let mx = 0, my = 0
+
+    const applyAll = () => {
+      if (rafId) return
+      rafId = requestAnimationFrame(() => {
+        starEls.forEach((el, i) => {
+          const d = stars[i].depth
+          const px = mx * d * 8 + offsets[i].bx
+          const py = my * d * 8 + offsets[i].by
+          el.style.transform = `translate(${px}px, ${py}px)`
+        })
+        rafId = null
       })
     }
 
-    window.addEventListener('mousemove', onMove)
-    return () => window.removeEventListener('mousemove', onMove)
-  }, [])
+    const onMove = (e) => {
+      mx = (e.clientX / window.innerWidth  - 0.5) * 2
+      my = (e.clientY / window.innerHeight - 0.5) * 2
+      applyAll()
+    }
+
+    const onTouchMove = (e) => {
+      const t = e.touches[0]
+      mx = (t.clientX / window.innerWidth  - 0.5) * 2
+      my = (t.clientY / window.innerHeight - 0.5) * 2
+      applyAll()
+    }
+
+    // --- Explosão no toque (tap) ---
+    const BLAST_RADIUS_PX = 180  // raio de influência do toque
+    const BLAST_FORCE     = 120  // força máxima de repulsão em px
+    const DECAY_MS        = 800  // tempo para voltar ao lugar
+
+    const onTouchStart = (e) => {
+      const touch = e.touches[0]
+      const tx = touch.clientX
+      const ty = touch.clientY
+
+      starEls.forEach((el, i) => {
+        const rect = el.getBoundingClientRect()
+        const cx = rect.left + rect.width  / 2
+        const cy = rect.top  + rect.height / 2
+
+        const dx = cx - tx
+        const dy = cy - ty
+        const dist = Math.sqrt(dx * dx + dy * dy)
+
+        if (dist < BLAST_RADIUS_PX && dist > 0) {
+          // força inversamente proporcional à distância
+          const force = (1 - dist / BLAST_RADIUS_PX) * BLAST_FORCE
+          offsets[i].bx = (dx / dist) * force
+          offsets[i].by = (dy / dist) * force
+
+          // volta gradualmente ao lugar
+          const start = performance.now()
+          const startBx = offsets[i].bx
+          const startBy = offsets[i].by
+
+          const decay = (now) => {
+            const t = Math.min((now - start) / DECAY_MS, 1)
+            const ease = 1 - Math.pow(1 - t, 3) // ease-out cubic
+            offsets[i].bx = startBx * (1 - ease)
+            offsets[i].by = startBy * (1 - ease)
+            if (t < 1) requestAnimationFrame(decay)
+          }
+          requestAnimationFrame(decay)
+        }
+      })
+
+      applyAll()
+    }
+
+    // Reutiliza a mesma lógica de explosão no click (desktop)
+    const onMouseClick = (e) => {
+      const fakeTouch = { touches: [{ clientX: e.clientX, clientY: e.clientY }] }
+      onTouchStart(fakeTouch)
+    }
+
+    window.addEventListener('mousemove',  onMove,       { passive: true })
+    window.addEventListener('click',      onMouseClick, { passive: true })
+    window.addEventListener('touchmove',  onTouchMove,  { passive: true })
+    window.addEventListener('touchstart', onTouchStart, { passive: true })
+
+    return () => {
+      window.removeEventListener('mousemove',  onMove)
+      window.removeEventListener('click',      onMouseClick)
+      window.removeEventListener('touchmove',  onTouchMove)
+      window.removeEventListener('touchstart', onTouchStart)
+      if (rafId) cancelAnimationFrame(rafId)
+    }
+  }, [stars])
 
   return (
     <div ref={containerRef} className="fixed inset-0 pointer-events-none" style={{ zIndex: 0, overflow: 'hidden' }}>
