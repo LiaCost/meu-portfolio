@@ -62,22 +62,6 @@ export default function Hero() {
           {personal.tagline}
         </p>
 
-
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-xl mx-auto">
-          {[
-            { value:'5+', label:'Projetos entregues' },
-            { value:'2',  label:'Clientes reais' },
-            { value:'5×', label:'Pódios em competições' },
-            { value:'2',  label:'Formações em TI' },
-          ].map((s, i) => (
-            <div key={s.label} className="glass-card p-4 text-center"
-              style={{ transitionDelay: mounted ? `${i * 120 + 600}ms` : '0ms' }}>
-              <div className="font-display text-2xl font-bold" style={{ color:'var(--accent1)' }}>{s.value}</div>
-              <div className="text-xs mt-1 font-body leading-tight" style={{ color:'var(--text-dim)' }}>{s.label}</div>
-            </div>
-          ))}
-        </div>
       </div>
 
       <a href="#sobre" className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/25 hover:text-white transition-colors animate-bounce"
