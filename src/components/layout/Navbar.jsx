@@ -71,6 +71,8 @@ export default function Navbar({ isDark, onToggleTheme }) {
                   style={{ color:'var(--text-muted)' }}
                   onMouseEnter={e => e.currentTarget.style.color='#fff'}
                   onMouseLeave={e => e.currentTarget.style.color='var(--text-muted)'}
+                  onTouchStart={e => e.currentTarget.style.color='#fff'}
+                  onTouchEnd={e => setTimeout(() => { e.currentTarget.style.color='var(--text-muted)' }, 300)}
                 >{l.label}</a>
               </li>
             ))}

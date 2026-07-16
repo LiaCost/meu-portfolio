@@ -69,26 +69,7 @@
 @layer components {
 
   /* ── Cursor ── */
-  .cursor-dot{
-    width:6px;height:6px;border-radius:50%;
-    background:var(--neon);
-    box-shadow:0 0 10px var(--neon),0 0 20px var(--glow);
-    position:fixed;pointer-events:none;z-index:9999;
-    transform:translate(-50%,-50%);
-    transition:transform .08s;
-  }
-  .cursor-ring{
-    width:30px;height:30px;border-radius:50%;
-    border:1px solid var(--border-h);
-    position:fixed;pointer-events:none;z-index:9998;
-    transform:translate(-50%,-50%);
-    transition:width .2s,height .2s,border-color .2s,background .2s;
-  }
-  .cursor-ring.hovering{
-    width:46px;height:46px;
-    border-color:var(--neon);
-    background:var(--glow2);
-  }
+  /* Estilos do cursor agora são inline no Cursor.jsx */
 
   /* ── Glass card ── */
   .glass-card{
@@ -157,15 +138,22 @@
     background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);
     transition:left .5s;
   }
-
+  /* borda neon giratória no hover */
+  .btn-glass::after{
+    content:'';position:absolute;inset:-1px;border-radius:11px;
+    background:conic-gradient(from 0deg,transparent 0deg 340deg,var(--neon) 360deg);
+    opacity:0;z-index:-1;
+    animation:none;
+    transition:opacity .3s;
+  }
   .btn-glass:hover::before{left:100%}
-
+  .btn-glass:hover::after{opacity:1;animation:rotateBorder 2s linear infinite}
   .btn-glass:hover{
     border-color:var(--border-h);
     box-shadow:0 0 18px var(--glow2);
     color:#fff;transform:translateY(-2px);
   }
-
+  @keyframes rotateBorder{to{rotate:360deg}}
 
   /* ── Electric border card (para destaque) ── */
   .electric-card{
