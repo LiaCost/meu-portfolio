@@ -138,22 +138,20 @@
     background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);
     transition:left .5s;
   }
-  /* borda neon giratória no hover */
+  /* borda neon no hover — sem rotação */
   .btn-glass::after{
     content:'';position:absolute;inset:-1px;border-radius:11px;
-    background:conic-gradient(from 0deg,transparent 0deg 340deg,var(--neon) 360deg);
+    background:var(--neon);
     opacity:0;z-index:-1;
-    animation:none;
     transition:opacity .3s;
   }
   .btn-glass:hover::before{left:100%}
-  .btn-glass:hover::after{opacity:1;animation:rotateBorder 2s linear infinite}
+  .btn-glass:hover::after{opacity:.15}
   .btn-glass:hover{
-    border-color:var(--border-h);
+    border-color:var(--neon);
     box-shadow:0 0 18px var(--glow2);
     color:#fff;transform:translateY(-2px);
   }
-  @keyframes rotateBorder{to{rotate:360deg}}
 
   /* ── Electric border card (para destaque) ── */
   .electric-card{
