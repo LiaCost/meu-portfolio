@@ -18,7 +18,7 @@ export default function App() {
       <div style={{ position:'relative', zIndex:1 }}>
         <Navbar isDark={isDark} onToggleTheme={toggle} />
         <main>
-          <Hero />
+          <Hero isDark={isDark}/>
           <Sobre />
           <Skills />
           <Projetos />
