@@ -7,7 +7,7 @@ export const personal = {
   linkedin: 'https://linkedin.com/in/seu-perfil',
   github: 'https://github.com/seu-usuario',
   cv: '/cv-lia-costa.pdf',
-  about: `Comecei do zero no técnico SENAI e hoje, a um semestre de me formar em Análise e Desenvolvimento de Sistemas, já entreguei projetos reais para empresas como Ideia Space e NowSocial.\n\nTenho afinidade com front-end e sensibilidade visual, mas atuo como full stack — de APIs REST com autenticação JWT a interfaces modernas. Acredito que tecnologia com propósito transforma vidas, e isso guia cada projeto que construo.`,
+  about: `Quem diria que a menina que amava desenhar com lápis hoje desenharia com código? Comecei na programação sem computador em casa e sem afinidade com exatas; hoje, transformo linhas de código em soluções full-stack, unindo a sensibilidade visual do front-end à estrutura do back-end. \n\nJá liderei squads em competições nacionais e desenvolvi sistemas reais. Para mim, a dificuldade inicial foi apenas o combustível para provar que tecnologia com propósito transforma vidas.`,
 }
 
 export const skills = {

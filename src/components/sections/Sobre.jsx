@@ -17,7 +17,7 @@ export default function Sobre() {
         <div>
           <span className="eyebrow">Sobre mim</span>
           <h2 className="font-display text-4xl md:text-5xl font-bold mt-4 mb-7 leading-tight text-glow">
-            De zero ao mercado real
+            Do lápis ao código
           </h2>
           {personal.about.split('\\n\\n').map((p, i) => (
             <p key={i} className="text-base leading-relaxed mb-5 font-body" style={{ color:'var(--text-muted)' }}>{p.trim()}</p>
