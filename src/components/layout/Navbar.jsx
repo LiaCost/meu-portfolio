@@ -4,6 +4,7 @@ import ThemeToggle from '../ui/ThemeToggle'
 import { personal } from '../../data/portfolio'
 
 const links = [
+    { label:'Início', href:'#' },
   { label:'Sobre', href:'#sobre' },
   { label:'Skills', href:'#skills' },
   { label:'Projetos', href:'#projetos' },

@@ -22,11 +22,7 @@ export default function Sobre() {
           {personal.about.split('\\n\\n').map((p, i) => (
             <p key={i} className="text-base leading-relaxed mb-5 font-body" style={{ color:'var(--text-muted)' }}>{p.trim()}</p>
           ))}
-          <div className="flex flex-wrap gap-2.5 mt-6">
-            {['Técnico SENAI','ADS — Último semestre','Porto Digital'].map(b => (
-              <span key={b} className="badge-neon">{b}</span>
-            ))}
-          </div>
+         
         </div>
         <div ref={ref} className="flex flex-col gap-4">
           {values.map(({ icon: Icon, title, desc }) => (

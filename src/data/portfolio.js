@@ -30,10 +30,10 @@ export const projects = [
 
   { id:3, title:'Elysium Beauty', type:'Full Stack', color:'purple', featured:true, realAcademic:true,
     description:'Plataforma de agendamentos para estética com painel administrativo, relatórios e gestão completa de clientes.',
-    highlight:'Projeto final do curso técnico — sistema do zero ao deploy.',
+    highlight:'Projeto final do curso técnico - sistema do zero ao deploy.',
     techs:['C#','ASP.NET MVC','Entity Framework','SQL Server'], github:'#', deploy:null, image:'/elysiumBeauty.svg' },
 
-  { id:4, title:'DITL — Ideia Space', type:'Full Stack', color:'cyan', featured:true, realClient:true,
+  { id:4, title:'DITL - Ideia Space', type:'Full Stack', color:'cyan', featured:true, realClient:true,
     description:'Sistema de automação de operações de satélite com cronômetro, registro com foto e geração automática de relatórios. Entregue para a Ideia Space.',
     highlight:'De "não entendi nada" na primeira reunião à entrega completa. 🛰️',
     techs:['HTML','CSS','JavaScript', 'MySQL'], github:null, deploy:'#', image:'/ideiaSpace.svg' },
@@ -48,7 +48,7 @@ export const projects = [
     highlight:'Website desenvolvido como projeto acadêmico para a Confeitaria Ana Alves, uma confeitaria artesanal.',
     techs:['HTML','CSS','JavaScript'], github:'#', deploy:'#', image:'/confeitariaAnaAlves.svg' },
     
-  { id:7, title:'Technaveia', type:'Frontend', color:'purple', featured:true, realAcademic:true, 
+  { id:7, title:'Technaveia', type:'Full Stack', color:'purple', featured:true, realAcademic:true, 
     description:'Aplicativo mobile que conecta clientes a técnicos de serviços diversos (manutenção, TI, elétrica, etc.). ',
     highlight:'Marketplace criado para conectar usuários que precisam de suporte tecnológico a técnicos qualificados.',
     techs:['React Native','Expo','TypeScript'], github:'#', deploy:null, image:'/technaveia.svg' },
