@@ -1,4 +1,5 @@
 import { useInView } from '../../hooks/useInView'
+import { techIcons } from '../../data/techIcons'
 
 export function SectionWrapper({ id, children, className = '' }) {
   const { ref, inView } = useInView()
@@ -36,4 +37,17 @@ export function TechPill({ label }) {
 
 export function BadgeNeon({ children, style = {} }) {
   return <span className="badge-neon" style={style}>{children}</span>
+}
+
+export function TechIcon({ name }) {
+  const icon = techIcons[name]
+  if (!icon) return <span className="tech-pill">{name}</span>
+
+  return (
+    <div className="tech-icon-box" data-tip={name} aria-label={name}>
+      {icon.type === 'devicon'
+        ? <i className={icon.className} />
+        : <icon.Icon size={20} strokeWidth={1.6} />}
+    </div>
+  )
 }

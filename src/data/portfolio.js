@@ -1,7 +1,7 @@
 export const personal = {
   name: 'Lia Costa',
   role: 'Desenvolvedora Full Stack',
-  tagline: 'Construo sistemas completos com alma de front-end - da API à interface, com propósito.',
+  tagline: 'Construo sistemas completos, com alma de front-end - da API à interface, com propósito.',
   location: 'Brasília, DF',
   email: 'seu@email.com',
   linkedin: 'https://linkedin.com/in/seu-perfil',
@@ -11,10 +11,10 @@ export const personal = {
 }
 
 export const skills = {
-  frontend: ['HTML5','CSS3','JavaScript','React','Bootstrap','Tailwind CSS','Figma'],
-  backend:  ['C#','ASP.NET Core','Node.js','Express','Java','MVC','Entity Framework','JWT','Swagger'],
-  database: ['SQL Server','MySQL','MongoDB'],
-  tools:    ['Git','GitHub','Selenium','JMeter','Jasmine','Vite'],
+  frontend: ['HTML5','CSS3','JavaScript', 'TypeScript', 'React', 'Bootstrap','Tailwind CSS','Figma'],
+  backend:  ['C#','ASP.NET Core', 'Python', 'Node.js','Express','Java','Entity Framework'],
+  database: ['SQL Server','MySQL', 'PostgreSQL','MongoDB'],
+  tools:    ['Git','GitHub','Selenium','JMeter','Jasmine','Vite'], 
 }
 
 export const projects = [

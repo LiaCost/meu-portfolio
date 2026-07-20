@@ -1,4 +1,4 @@
-import { SectionWrapper, SectionHeader, TechPill } from '../ui'
+import { SectionWrapper, SectionHeader, TechIcon } from '../ui'
 import { useStagger } from '../../hooks/useInView'
 import { skills } from '../../data/portfolio'
 
@@ -26,7 +26,7 @@ export default function Skills() {
                 <h3 className="text-xs font-semibold tracking-widest uppercase font-body" style={{ color:'var(--accent2)' }}>{cat.label}</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {skills[cat.key].map(s => <TechPill key={s} label={s} />)}
+                {skills[cat.key].map(s => <TechIcon key={s} name={s} />)}
               </div>
             </div>
           </div>
