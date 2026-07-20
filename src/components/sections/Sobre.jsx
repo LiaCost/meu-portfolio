@@ -4,8 +4,8 @@ import { useStagger } from '../../hooks/useInView'
 import { personal } from '../../data/portfolio'
 
 const values = [
-  { icon: Code2,     title:'Full Stack com alma de front', desc:'Da API à interface, com sensibilidade visual e atenção a cada detalhe.' },
-  { icon: Lightbulb, title:'Tecnologia com propósito',     desc:'Acessibilidade, inclusão e sustentabilidade guiam cada projeto.' },
+  { icon: Code2,     title:'Full Stack com alma de front', desc:'Mente no código e coração na interface.' },
+  { icon: Lightbulb, title:'Tecnologia com propósito',     desc:'Tecnologia que inclui, transforma e respeita o futuro.' },
   { icon: Users,     title:'Liderança comprovada',         desc:'Liderei squads em hackathons, competições e projetos para empresas reais.' },
 ]
 

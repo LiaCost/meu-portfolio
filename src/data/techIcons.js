@@ -8,13 +8,13 @@ export const techIcons = {
   'HTML5':          dv('html5-plain'),
   'CSS3':           dv('css3-plain'),
   'JavaScript':     dv('javascript-plain'),
-  'TypeScript':     dv('typescript-plain'),      // novo
+  'TypeScript':     dv('typescript-plain'),    
   'React':          dv('react-original'),
   'Bootstrap':      dv('bootstrap-plain'),
   'Tailwind CSS':   dv('tailwindcss-original'),
   'Figma':          dv('figma-plain'),
   // back-end
-  'Python':         dv('python-plain'),          // novo
+  'Python':         dv('python-plain'),        
   'C#':             dv('csharp-plain'),
   'ASP.NET Core':   dv('dotnetcore-plain'),
   'Node.js':        dv('nodejs-plain'),
@@ -24,7 +24,7 @@ export const techIcons = {
   // banco de dados
   'SQL Server':     dv('microsoftsqlserver-plain'),
   'MySQL':          dv('mysql-original'),
-  'PostgreSQL':     dv('postgresql-plain'),      // novo
+  'PostgreSQL':     dv('postgresql-plain'),      
   'MongoDB':        dv('mongodb-plain'),
   // ferramentas
   'Git':            dv('git-plain'),

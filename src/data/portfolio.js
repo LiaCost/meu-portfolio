@@ -1,13 +1,13 @@
 export const personal = {
   name: 'Lia Costa',
   role: 'Desenvolvedora Full Stack',
-  tagline: 'Construo sistemas completos, com alma de front-end - da API à interface, com propósito.',
+  tagline: 'Código é o meu instrumento, mas o que me move é o valor gerado no outro lado da tela.',
   location: 'Brasília, DF',
   email: 'seu@email.com',
   linkedin: 'https://linkedin.com/in/seu-perfil',
   github: 'https://github.com/seu-usuario',
   cv: '/cv-lia-costa.pdf',
-  about: `Quem diria que a menina que amava desenhar com lápis hoje desenharia com código? Comecei na programação sem computador em casa e sem afinidade com exatas; hoje, transformo linhas de código em soluções full-stack, unindo a sensibilidade visual do front-end à estrutura do back-end. \n\nJá liderei squads em competições nacionais e desenvolvi sistemas reais. Para mim, a dificuldade inicial foi apenas o combustível para provar que tecnologia com propósito transforma vidas.`,
+  about: `Quem diria que a menina que amava desenhar com lápis hoje desenharia com código? Comecei na programação sem computador em casa e sem afinidade com exatas; hoje, transformo linhas de código em soluções que unem design à inteligência que roda por trás da tela. Já liderei squads em competições nacionais e desenvolvi sistemas reais. Para mim, a dificuldade inicial foi apenas o combustível para provar que tecnologia com propósito transforma vidas.`,
 }
 
 export const skills = {
